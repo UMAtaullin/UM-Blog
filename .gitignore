@@ -161,4 +161,4 @@ cython_debug/
 .vscode/
 
 # personal file
-/build
+.build/
