@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+<main>
+    <!-- класс py-5 создает отступы сверху и снизу блока -->
+    <div class="container py-5">
+    <h1>Последние обновления на сайте</h1>
+    <article>
+        <ul>
+        <li>
+            Автор: Лев Толстой
+        </li>
+        <li>
+            Дата публикации: 30 июля 1854
+        </li>
+        </ul>
+        <p>
+        Пуибликация 1
+        </p>
+        <a href="{group_list.html}">все записи группы</a>
+    </article>
+    <hr>
+    <article>
+        <ul>
+        <li>
+            Автор: Лев Толстой
+        </li>
+        <li>
+            Дата публикации: 29 июля 1854
+        </li>
+        </ul>
+        <p>
+        Публикация 2
+        </p>
+        <a href="group_list.html">все записи группы</a>
+    </article>
+    <hr>
+    <article>
+        <ul>
+        <li>
+            Автор: Лев Толстой
+        </li>
+        <li>
+            Дата публикации: 28 июля 1854
+        </li>
+        </ul>
+        <p>
+        Публикация 3
+        </p>
+        <a href="group_list.html">все записи группы</a>
+    </article>
+    <!-- под последним постом нет линии -->
+    </div>
+</main>
+{% endblock %}
