@@ -3,8 +3,19 @@ from django.shortcuts import HttpResponse
 
 
 def index(request):
-    return render(request, 'posts/index.html')
+    """
+    Функция render() не только связывает view-функцию и шаблон, но и
+    позволяет передать в этот шаблон данные, сгенерированные во view-функции.
+    """
+    data = {
+        'title': 'Главная страница',
+        'text': 'Это главная страница проекта StarBlog',
+    }
+    return render(request, 'posts/index.html', data)
 
 
 def group(request, any):
-    return HttpResponse("<h1>Группа</h1>")
+    data = {
+        'title': 'Группы',
+    }
+    return render(request, 'posts/group_list.html', data)
