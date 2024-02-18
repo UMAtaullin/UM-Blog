@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from django.shortcuts import HttpResponse
+from django.shortcuts import HttpResponse, render
 
 
 def index(request):
@@ -18,4 +17,4 @@ def group(request, any):
     data = {
         'title': 'Группы',
     }
-    return render(request, 'posts/group_list.html', data)
+    return render(request, 'posts/groups.html', data)
