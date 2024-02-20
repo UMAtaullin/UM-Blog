@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
-from posts.models import Post
+from posts.models import Group, Post
 
 
 def index(request):
@@ -17,8 +17,12 @@ def index(request):
     return render(request, 'posts/index.html', data)
 
 
-def group(request, any):
+def group_posts(request, slug):
+    group = get_object_or_404(Group, slug=slug)
+    posts = Post.objects.filter(group=group).order_by('-pub_date')[:5]
     data = {
         'title': 'Группы',
+        'group': group,
+        'posts': posts
     }
     return render(request, 'posts/groups.html', data)
