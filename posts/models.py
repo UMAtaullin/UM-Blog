@@ -7,12 +7,13 @@ User = get_user_model()
 
 class Post(models.Model):
     """Модель для хранения постов."""
-    text = models.TextField()
+    text = models.TextField(verbose_name='Текст')
     pub_date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='posts')
+        related_name='posts',
+        verbose_name='Автор')
 
     class Meta:
         verbose_name = 'Пост'
