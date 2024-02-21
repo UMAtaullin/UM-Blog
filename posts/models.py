@@ -1,5 +1,4 @@
 """Из модуля auth импортируем функцию get_user_model"""
-from tokenize import group
 from django.contrib.auth import get_user_model
 from django.db import models
 
