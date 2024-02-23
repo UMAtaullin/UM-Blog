@@ -1,17 +1,12 @@
 {% load static %}
-<!-- Использованы классы бустрапа для создания типовой навигации с логотипом -->
-<!-- В дальнейшем тут будет создано полноценное меню -->
 <nav class="navbar navbar-light" style="background-color: lightskyblue">
   <div class="container">
-    <a class="navbar-brand" href="{% url 'posts:home' %}">
-      <img
-        src="{% static 'img/logo.png' %}"
-        width="30" height="30"
+    <a class="navbar-brand" href="{% url 'posts:home' %}" style="display: flex; align-items: center;">
+      <img src="{% static 'img/logo.png' %}"
+        width="25" height="25"
         class="d-inline-block align-top"
-        alt=""
-      />
-      <!-- тег span используется для добавления нужных стилей отдельным участкам текста -->
-      <span style="color:green">UM</span>Ataullin</p>
+        alt=""/>
+      <span style="color:green; margin-left: 5px;">UM</span>Blog
     </a>
   </div>
 </nav>
