@@ -25,6 +25,7 @@ INSTALLED_APPS = [
 
     # local apps
     'posts.apps.PostsConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
