@@ -23,6 +23,9 @@ INSTALLED_APPS = [
     # tools
     'django_extensions',
 
+    # service apps
+    'core.apps.CoreConfig',
+
     # local apps
     'posts.apps.PostsConfig',
     'users.apps.UsersConfig',
