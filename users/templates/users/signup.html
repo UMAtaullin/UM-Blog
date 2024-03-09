@@ -7,7 +7,7 @@
 
 {% block content %}
   <div class="row justify-content-center">
-    <div class="col-md-8 p-5">
+    <div class="col-md-8 p-3">
       <div class="card">
         <div class="card-header">
           Зарегестрироваться
@@ -31,8 +31,9 @@
           <form method="post" action="{% url 'users:signup' %}">
             {% csrf_token %}
 
+          <div class="row">
             {% for field in form %}
-            <div class="form-group row my-3 p-3">
+            <div class="form-group col-md-6">
               <label for="{{ field.id_for_label }}">
                 {{ field.label }}
                 {% if field.field.required %}
@@ -40,7 +41,7 @@
                 {% endif %}
 
               </label>
-              {{ field|addclass:'form-control' }} 
+              {{ field|addclass:'form-control' }}
               {% if field.help_text %}
                 <small id="{{ field.id_for_label }}-help"
                   class="form-text text-muted">
@@ -50,7 +51,7 @@
 
               </div>
             {% endfor %}
-            <div class="col-md-6 offset-md-4">
+            <div class="text-center">
               <button type="submit" class="btn btn-primary">
                 Зарегистрироваться
               </button>
