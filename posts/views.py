@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, render
 
 from posts.models import Group, Post
@@ -8,7 +9,14 @@ def index(request):
     Функция render() не только связывает view-функцию и шаблон, но и
     позволяет передать в этот шаблон данные, сгенерированные во view-функции.
     """
-    posts = Post.objects.order_by('-pub_date')[:5]
+    post_list = Post.objects.order_by('-pub_date')
+
+    paginator = Paginator(post_list, 2)
+    # Из URL извлекаем номер запрошенной страницы - это значение параметра page
+    page_number = request.GET.get('page')
+    # Получаем набор записей для страницы с запрошенным номером
+    posts = paginator.get_page(page_number)
+
     data = {
         'title': 'Главная страница',
         'text': 'Это главная страница проекта StarBlog',

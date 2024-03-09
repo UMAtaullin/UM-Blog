@@ -18,6 +18,9 @@
       <a href="">все записи группы</a>
       {% if not forloop.last %}<hr>{% endif %}
     {% endfor %}
+
+    {% include "includes/paginator.html" %}
+    
   </article>
   <!-- под последним постом нет линии -->
   </div>
