@@ -22,7 +22,7 @@ urlpatterns = [
          name="password_change_done",),
     # Восстановление пароля
     path("password_reset/", views.PasswordResetView.as_view(),
-         name="password_reset"),
+         name="password_reset_form"),
     # Сообщение об отправке ссылки для восстановления пароля
     path("password_reset/done/", views.PasswordResetDoneView.as_view(),
          name="password_reset_done",),
