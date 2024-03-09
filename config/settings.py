@@ -102,5 +102,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'users:login'   # перенаправлять пользователей для авторизации.
 # перенаправить пользователя после успешной авторизации.
-LOGIN_REDIRECT_URL = 'posts:index'
-LOGOUT_REDIRECT_URL = 'posts:index'
+LOGIN_REDIRECT_URL = 'posts:home'
+LOGOUT_REDIRECT_URL = 'posts:home'
