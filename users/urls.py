@@ -19,17 +19,21 @@ urlpatterns = [
          name="password_change"),
     # Сообщение об успешном изменении пароля
     path("password_change/done/", views.PasswordChangeDoneView.as_view(),
-         name="password_change_done",),
+         name="password_change_done"),
     # Восстановление пароля
-    path("password_reset/", views.PasswordResetView.as_view(),
+    path("password_reset/", views.PasswordResetView.as_view(
+         template_name="users/password_reset_form.html"),
          name="password_reset_form"),
     # Сообщение об отправке ссылки для восстановления пароля
-    path("password_reset/done/", views.PasswordResetDoneView.as_view(),
-         name="password_reset_done",),
+    path("password_reset/done/", views.PasswordResetDoneView.as_view(
+         template_name="users/password_reset_done.html"),
+         name="password_reset_done"),
     # Вход по ссылке для восстановления пароля
-    path("reset/<uidb64>/<token>/", views.PasswordResetConfirmView.as_view(),
-         name="password_reset_confirm",),
+    path("reset/<uidb64>/<token>/", views.PasswordResetConfirmView.as_view(
+         template_name="users/password_reset_confirm.html"),
+         name="password_reset_confirm"),
     # Сообщение об успешном восстановлении пароля
-    path("reset/done/", views.PasswordResetCompleteView.as_view(),
-         name="password_reset_complete",),
+    path("reset/done/", views.PasswordResetCompleteView.as_view(
+        template_name="users/password_reset_complete.html"),
+         name="password_reset_complete"),
 ]
