@@ -1,7 +1,7 @@
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, render
 
-from posts.models import Group, Post
+from posts.models import Group, Post, User
 
 
 def index(request):
@@ -34,3 +34,25 @@ def group_posts(request, slug):
         'posts': posts
     }
     return render(request, 'posts/groups.html', data)
+
+
+def profile(request, username):
+
+    author = get_object_or_404(User, username=username)
+
+    data = {
+        'title': 'Профиль пользователя',
+        'author': author,
+        'posts': Post.objects.filter(id=author.id)
+    }
+
+    return render(request, 'posts/profile.html', data)
+
+
+def post_detail(request, post_id):
+
+    data = {
+        'post': get_object_or_404(Post, id=post_id)
+    }
+
+    return render(request, 'posts/post_detail.html', data)

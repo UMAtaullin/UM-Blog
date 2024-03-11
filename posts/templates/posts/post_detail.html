@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %} Пост {% endblock %}
+
+{% block content %}
+<main>
+  <div class="row">
+    <aside class="col-12 col-md-4">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <strong>Дата публикации:</strong> {{ post.pub_date |date:"D d M Y" }}
+        </li>
+        <!-- если у поста есть группа -->
+        <li class="list-group-item">
+          <strong>Ссылка на сообщество:</strong>
+            <a href="<!-- -->">{{ post.group }}</a>
+        </li>
+        <li class="list-group-item">
+            <strong>Автор:</strong> {{ post.author }}
+        </li>
+      </ul>
+    </aside>
+    <aside class="col-12 col-md 8">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <p>{{ post.text }}</p>
+        </li>
+      </ul>
+    </aside>
+  </div>
+</main>
+{% endblock content %}
