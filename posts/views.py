@@ -1,5 +1,6 @@
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, render
+from posts.forms import AddPostForm
 
 from posts.models import Group, Post, User
 
@@ -55,3 +56,20 @@ def post_detail(request, post_id):
     }
 
     return render(request, 'posts/post_detail.html', data)
+
+
+def post_create(request):
+
+    if request.method == 'POST':
+        form = AddPostForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+    else:
+        form = AddPostForm()
+
+    data = {
+        'title': 'Добавление статьи',
+        'form': form,
+    }
+
+    return render(request, 'posts/post_create.html', data)
