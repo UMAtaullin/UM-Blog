@@ -1,13 +1,9 @@
 {% extends "base.html" %}
   <head>
-    {% block title %} {{title}} {% endblock %}
+    {% block title %} Все записи сообщества {% endblock %}
   </head>
-  <body>
-    <header>
-      {% include "navigator.html" %}
-    </header>
 {% block content %}
-  <h2>{{group.title}}</h2>
+  <h2>Все записи сообщества "{{group.title}}"</h2>
   <p>{{group.description|linebreaks }}</p>
 {% for post in posts %}
   <ul>
