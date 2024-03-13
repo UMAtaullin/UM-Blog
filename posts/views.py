@@ -1,5 +1,6 @@
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from posts.forms import AddPostForm
 
 from posts.models import Group, Post, User
@@ -12,7 +13,7 @@ def index(request):
     """
     post_list = Post.objects.order_by('-pub_date')
 
-    paginator = Paginator(post_list, 2)
+    paginator = Paginator(post_list, 5)
     # Из URL извлекаем номер запрошенной страницы - это значение параметра page
     page_number = request.GET.get('page')
     # Получаем набор записей для страницы с запрошенным номером
@@ -58,12 +59,14 @@ def post_detail(request, post_id):
     return render(request, 'posts/post_detail.html', data)
 
 
+@login_required()
 def post_create(request):
-
     if request.method == 'POST':
         form = AddPostForm(request.POST)
         if form.is_valid():
-            print(form.cleaned_data)
+            current_user = request.user
+            form.save(author=current_user)
+            return redirect('posts:home')
     else:
         form = AddPostForm()
 
@@ -71,5 +74,4 @@ def post_create(request):
         'title': 'Добавление статьи',
         'form': form,
     }
-
     return render(request, 'posts/post_create.html', data)

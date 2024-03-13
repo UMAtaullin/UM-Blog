@@ -7,6 +7,8 @@ User = get_user_model()
 
 class Post(models.Model):
     """Модель для хранения постов."""
+    title = models.CharField(max_length=64, verbose_name='Заголовок',
+                             null=True, blank=True)
     text = models.TextField(verbose_name='Текст')
     pub_date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(
