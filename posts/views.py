@@ -75,3 +75,7 @@ def post_create(request):
         'form': form,
     }
     return render(request, 'posts/post_create.html', data)
+
+
+def post_edit(request, post_id):
+    pass

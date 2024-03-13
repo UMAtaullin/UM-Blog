@@ -1,16 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{ title }}</h1>
+
+<style>
+  .form-elements {
+    margin-left: 60px; /* Adjust the value as per your preference */
+  }
+  .form-label {
+    margin-bottom: 10px; /* Adding space between label text and input */
+  }
+</style>
+
+<div class="form-elements">
+  <h1>{{ title }}</h1>
+</div>
+
 <form action="" method="post">
   {% csrf_token %}
-  <div class="form-error">{{ form.non_field_errors }}</div>
-  <p><label class="form-label" for="{{ form.title.id_for_label}}">{{ form.title.label }}</label>{{ form.title }}</p>
-  <div class="form-error">{{ form.title.error }}</div>
-  <p><label class="form-label" for="{{ form.text.id_for_label}}">{{ form.text.label }}</label>{{ form.text }}</p>
-  <div class="form-error">{{ form.text.error }}</div>
-  <p><label class="form-label" for="{{ form.group.id_for_label}}">{{ form.group.label }}</label>{{ form.group }}</p>
-  <div class="form-error">{{ form.group.error }}</div>
-  <p><button type='submit'>Отправить</button></p>
+  <div class="form-elements">
+    <div class="form-error">{{ form.non_field_errors }}</div>
+    <p><label class="form-label" for="{{ form.title.id_for_label}}">{{ form.title.label }}</label>{{ form.title }}</p>
+    <div class="form-error">{{ form.title.error }}</div>
+    <p><label class="form-label" for="{{ form.text.id_for_label}}">{{ form.text.label }}</label>{{ form.text }}</p>
+    <div class="form-error">{{ form.text.error }}</div>
+    <p><label class="form-label" for="{{ form.group.id_for_label}}">{{ form.group.label }}</label>{{ form.group }}</p>
+    <div class="form-error">{{ form.group.error }}</div>
+    <p><button type='submit'>Отправить</button></p>
+  </div>
 </form>
 {% endblock content %}
